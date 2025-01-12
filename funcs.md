@@ -11,7 +11,7 @@
 * [Math Transform](func_groups/math_transform.md)
 * [Math Operators](func_groups/math_operators.md)
 
-#### [Overlap Studies](func_groups/overlap_studies.md)
+#### [Overlap Studies](func_groups/overlap_studies.md)  重叠研究
 
 ```
 BBANDS               Bollinger Bands
@@ -33,22 +33,28 @@ TRIMA                Triangular Moving Average
 WMA                  Weighted Moving Average
 ```
 
-#### [Momentum Indicators](func_groups/momentum_indicators.md)
+#### [Momentum Indicators](func_groups/momentum_indicators.md)  动量指标
 
 ```
 ADX                  Average Directional Movement Index
+                    平均趋向指数 ？
 ADXR                 Average Directional Movement Index Rating
-APO                  Absolute Price Oscillator
+
+APO                  Absolute Price Oscillator  绝对价格振荡器
 AROON                Aroon
 AROONOSC             Aroon Oscillator
-BOP                  Balance Of Power
-CCI                  Commodity Channel Index
-CMO                  Chande Momentum Oscillator
-DX                   Directional Movement Index
+
+BOP                  Balance Of Power           力量平衡
+                    [ BOP = \frac{(Close - Open)}{(High - Low)} ]
+CCI                  Commodity Channel Index    商品通道指数
+                    [ CCI = \frac{TP - SMA(TP, n)}{\frac{0.015 \times MAD(TP, n)}} ]
+CMO                  Chande Momentum Oscillator 钱德动量摆动指标
+                    [ CMO = \frac{(Su - Sd)}{(Su + Sd)} \times 100 ]
+DX                   Directional Movement Index 方向性移动指数
 MACD                 Moving Average Convergence/Divergence
 MACDEXT              MACD with controllable MA type
 MACDFIX              Moving Average Convergence/Divergence Fix 12/26
-MFI                  Money Flow Index
+MFI                  Money Flow Index       一段时间内，资金流入流出的比例
 MINUS_DI             Minus Directional Indicator
 MINUS_DM             Minus Directional Movement
 MOM                  Momentum
@@ -68,15 +74,17 @@ ULTOSC               Ultimate Oscillator
 WILLR                Williams' %R
 ```
 
-#### [Volume Indicators](func_groups/volume_indicators.md)
+#### [Volume Indicators](func_groups/volume_indicators.md)  成交量指标
 
 ```
-AD                   Chaikin A/D Line
+AD                   Chaikin A/D Line               ？会加昨日 A/D 吗
+                    ((close - low) - (high - close)) / (high - low) * volume
 ADOSC                Chaikin A/D Oscillator
-OBV                  On Balance Volume
+                    EMA(AD Line, short_period) - EMA(AD Line, long_period)
+OBV                  On Balance Volume              成交量正负叠加
 ```
 
-#### [Cycle Indicators](func_groups/cycle_indicators.md)
+#### [Cycle Indicators](func_groups/cycle_indicators.md)    波动性指标
 
 ```
 HT_DCPERIOD          Hilbert Transform - Dominant Cycle Period
@@ -86,24 +94,37 @@ HT_SINE              Hilbert Transform - SineWave
 HT_TRENDMODE         Hilbert Transform - Trend vs Cycle Mode
 ```
 
-#### [Price Transform](func_groups/price_transform.md)
+#### [Price Transform](func_groups/price_transform.md)  价格指标
 
 ```
 AVGPRICE             Average Price
+                    [ \text{AVGPRICE} = \frac{\text{High} + \text{Low} + \text{Open} + \text{Close}}{4} ]
+                    单个交易日的平均价格
 MEDPRICE             Median Price
+                    [ \text{MEDPRICE} = \frac{\text{High} + \text{Low}}{2} ]
+                    单个交易日的中点价格
 TYPPRICE             Typical Price
+                    [ \text{TYPPRICE} = \frac{\text{High} + \text{Low} + 2 \times \text{Close}}{4} ]
+                    用于计算单个交易日的典型价格
 WCLPRICE             Weighted Close Price
+                    [ \text{WCLPRICE} = \frac{\text{High} + \text{Low} + 2 \times \text{Close}}{4} ]
+                    用于计算单个交易日的加权收盘价
 ```
 
-#### [Volatility Indicators](func_groups/volatility_indicators.md)
+#### [Volatility Indicators](func_groups/volatility_indicators.md)  周期指标
 
 ```
 ATR                  Average True Range
+                    [ \text{TR} = \max(\text{High} - \text{Low}, |\text{High} - \text{Previous Close}|, |\text{Low} - \text{Previous Close}|) ]
+                    简单移动平均、指数移动平均
+                    可以作为止损点，止盈点，例如，设置止损点为当前价格减去 ATR 的 2 倍
 NATR                 Normalized Average True Range
+                    NATR 是 ATR 除以收盘价并乘以 100，以百分比形式表示
 TRANGE               True Range
+                    TRANGE 是计算 ATR（Average True Range）的基础，用于衡量单个交易日内的价格波动范围
 ```
 
-#### [Pattern Recognition](func_groups/pattern_recognition.md)
+#### [Pattern Recognition](func_groups/pattern_recognition.md)  形态识别
 
 ```
 CDL2CROWS            Two Crows
@@ -169,7 +190,7 @@ CDLUPSIDEGAP2CROWS   Upside Gap Two Crows
 CDLXSIDEGAP3METHODS  Upside/Downside Gap Three Methods
 ```
 
-#### [Statistic Functions](func_groups/statistic_functions.md)
+#### [Statistic Functions](func_groups/statistic_functions.md)  统计函数
 
 ```
 BETA                 Beta
@@ -183,7 +204,7 @@ TSF                  Time Series Forecast
 VAR                  Variance
 ```
 
-#### [Math Transform](func_groups/math_transform.md)
+#### [Math Transform](func_groups/math_transform.md)    数学变换
 
 ```
 ACOS                 Vector Trigonometric ACos
@@ -203,7 +224,7 @@ TAN                  Vector Trigonometric Tan
 TANH                 Vector Trigonometric Tanh
 ```
 
-#### [Math Operators](func_groups/math_operators.md)
+#### [Math Operators](func_groups/math_operators.md)    数学运算符
 
 ```
 ADD                  Vector Arithmetic Add
